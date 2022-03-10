@@ -15,7 +15,7 @@ export const Content = styled.div`
     padding:3rem 1rem 10rem;
 
     button {
-        color: var(--shape);
+        color: var(--white);
         background: var(--blue-light);
         border: none;
         border-radius: 5px;
