@@ -2,6 +2,7 @@
 
 import { Cards } from "./components/Cards/cards";
 import { Header } from "./components/Header/header";
+import { Transaction } from "./components/Transactions";
 import { GlobalStyles } from "./styles/global";
 
 function App() {
@@ -9,7 +10,8 @@ function App() {
     <>
       <Header />
       <Cards />
-      <GlobalStyles/>
+      <Transaction />
+      <GlobalStyles />
     </>
   );
 }
