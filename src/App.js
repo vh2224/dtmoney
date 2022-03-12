@@ -10,26 +10,24 @@ Modal.setAppElement('#root');
 
 function App() {
 
-  const [modalIsOpen, setIsOpen] = useState(false);
+  const [openModalTransaction, setOpenModalTransaction] = useState(false);
 
-    function openModal() {
-      setIsOpen(true);
+    function openModalNewTransaction() {
+      setOpenModalTransaction(true);
     }
 
-    function closeModal() {
-      setIsOpen(false);
+    function closeModalNewTransaction() {
+      setOpenModalTransaction(false);
     }
-
-
 
   return (
     <>
-      <Header openNewModalTransaction={openModal}/>
+      <Header onClickNewTransaction={openModalNewTransaction}/>
       <Cards />
       <Transaction />
       <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={closeModal}
+        isOpen={openModalTransaction}
+        onRequestClose={closeModalNewTransaction}
       >
         <h2>Testando Modal</h2>
       </Modal>
