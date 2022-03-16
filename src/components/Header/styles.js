@@ -14,20 +14,4 @@ export const Content = styled.div`
     margin: 0 auto;
     padding:3rem 1rem 10rem;
 
-    button {
-        color: var(--white);
-        background: var(--blue-light);
-        border: none;
-        border-radius: 5px;
-        padding: 0.8rem 2rem;
-
-        transition: filter 0.25s;
-
-        &:hover {
-
-            filter: brightness(0.90);
-
-        }
-}
-
 `;

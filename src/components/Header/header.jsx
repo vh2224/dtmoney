@@ -1,4 +1,5 @@
 import Logo from '../../assets/logo.svg';
+import { Button } from '../Button/Button';
 import { Component } from './styles';
 import { Content } from './styles';
 
@@ -8,11 +9,8 @@ export function Header ({onClickNewTransaction}) {
         <Component>
             <Content>
                 <img src={Logo} alt="dt-money" />
-                <button type="button" onClick={onClickNewTransaction}>
-                    Nova Transação
-                </button>
+                <Button onClick={onClickNewTransaction} type={'newTransaction'} size={'medium'} className={'default'}>Nova Transação</Button>
             </Content>
         </Component>
     )
-
 }

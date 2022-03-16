@@ -1,17 +1,19 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import { Transactions } from "./styles";
 
 
 export function Transaction () {
 
+  const [newTransactions, setNewTransactions] = useState([]);
+
   useEffect (() =>  {
     api.get('/transactions')
-    .then(response => console.log(response.data));
+      .then(response => setNewTransactions(response.data));
   }, [])
 
-  return (
 
+  return (
     <Transactions>
       <table>
         <thead>
@@ -23,22 +25,22 @@ export function Transaction () {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Desenvolvimento de Software</td>
-            <td className="deposit">R$ 1200,00</td>
-            <td>Desenvolvimento</td>
-            <td>10/03/2022</td>
-          </tr>
-          <tr>
-            <td>Mensalidade Faculdade</td>
-            <td className="withdraw">R$ 1200,00</td>
-            <td>Faculdade</td>
-            <td>10/03/2022</td>
-          </tr>
+
+          {newTransactions.length > 1 ?
+            newTransactions.map((transaction) =>(
+              <tr key={transaction.id}>
+                <td>{transaction.title}</td>
+                <td className="deposit">R$ {transaction.value}</td>
+                <td>{transaction.category}</td>
+                <td>{transaction.createdAt}</td>
+              </tr>
+            ))
+            :
+            <p>Não Existem Dados.</p>
+        }
         </tbody>
       </table>
     </Transactions>
-
   );
 
 }

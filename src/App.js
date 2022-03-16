@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Cards } from "./components/Cards/cards";
 import { Header } from "./components/Header/header";
 import { Transaction } from "./components/Transactions";
+import { TransactionsModal } from "./components/TransactionsModal/TransactionsModal"
 import { GlobalStyles } from "./styles/global";
 import Modal from 'react-modal';
 
@@ -25,12 +26,10 @@ function App() {
       <Header onClickNewTransaction={openModalNewTransaction}/>
       <Cards />
       <Transaction />
-      <Modal
+      <TransactionsModal
         isOpen={openModalTransaction}
         onRequestClose={closeModalNewTransaction}
-      >
-        <h2>Testando Modal</h2>
-      </Modal>
+      />
       <GlobalStyles />
     </>
   );
