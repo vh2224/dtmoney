@@ -12,7 +12,8 @@ export const Container = styled.button`
   width: ${({state}) => Tokens.states[state]};
   transition: filter 0.25s;
   font-size: ${({size}) => Tokens.sizes[size]};
-
+  margin-top: ${({margin}) => Tokens.margins[margin]};
+  
   &:hover {
     filter: brightness(0.90); 
     }

@@ -3,6 +3,12 @@ export const Tokens = {
     newTransaction: 'var(--blue-light)',
     register: 'var(--green)',
   },
+  margins: {
+    top: '1rem',
+    right: '1rem',
+    left: '1rem',
+    bottom: '1rem'
+  },
   states: {
     default: '',
     full: '100%',
