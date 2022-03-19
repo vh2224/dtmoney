@@ -22,7 +22,7 @@ app.post('/new-transaction', (req, res) => {
   const transactions = new Transaction();
   const data = req.body;
 
-  transactions.setTransaction(data, res)
+  transactions.setTransaction(res, data)
 
 });
 

@@ -11,11 +11,10 @@ module.exports = class Transaction {
     db.query(res, 'SELECT * FROM transactions');
   }
 
-  setTransaction(data, res) {
-
+  setTransaction(res, data) {
 
     const db = new Database();
-    db.query(res, 'INSERT INTO transactions (title, value, category) VALUES (?,?,?)', data);
+    db.query(res, `INSERT INTO transactions (title, value, type, category) VALUES (?, ?, ?, ?)`, data);
   }
 
 }
