@@ -10,16 +10,19 @@ export function TransactionsModal ({isOpen, onRequestClose}) {
 
   const [title, setTitle] = useState('');
   const [value, setValue] = useState(0);
+  const [type, setType] = useState('');
   const [category, setCategory] = useState('');
 
 
   function handleCreateNewTransaction (e) {
       e.preventDefault();
       const data = [
-        title, 
-        value, 
+        title,
+        value,
+        type,
         category
       ]
+      console.log(data)
 
       api.post ('/new-transaction', data)
 
@@ -50,6 +53,11 @@ export function TransactionsModal ({isOpen, onRequestClose}) {
           placeholder="Valor"
           value={value}
           onChange={(e) => setValue(Number(e.target.value))}
+        />
+        <input
+          placeholder="Tipo"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
         />
         <input
           placeholder="Categoria"

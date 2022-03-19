@@ -9,7 +9,7 @@ export function Header ({onClickNewTransaction}) {
         <Component>
             <Content>
                 <img src={Logo} alt="dt-money" />
-                <Button onClick={onClickNewTransaction} type={'newTransaction'} size={'medium'} className={'default'}>Nova Transação</Button>
+                <Button onClick={onClickNewTransaction}>Nova Transação</Button>
             </Content>
         </Component>
     )
