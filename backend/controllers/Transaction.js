@@ -14,7 +14,7 @@ module.exports = class Transaction {
   setTransaction(res, data) {
 
     const db = new Database();
-    db.query(res, `INSERT INTO transactions (title, value, type, category) VALUES (?, ?, ?, ?)`, data);
+    db.query(res, `INSERT INTO transactions (title, value, type, category, created_at) VALUES (?, ?, ?, ?, now())`, data);
   }
 
 }
