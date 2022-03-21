@@ -1,20 +1,25 @@
 import styled from 'styled-components';
-import { Tokens } from '../Tokens/Tokens';
 
 
 export const Container = styled.button`
 
   color: var(--white);
-  background: ${({background}) => Tokens.types[background]};
+  background-color: var(--blue-light);
   border: none;
   border-radius: 5px;
   padding: 0.8rem 2rem;
-  width: ${({state}) => Tokens.states[state]};
   transition: filter 0.25s;
-  font-size: ${({size}) => Tokens.sizes[size]};
-  margin-top: ${({margin}) => Tokens.margins[margin]};
   
   &:hover {
     filter: brightness(0.90); 
     }
+
+  &.type-confirm {
+    background-color: var(--green);
+    width: 100%;
+    margin-top: 1rem;
+    font-size: 18px;
+    line-height: 1rem;
+    padding: 1.5rem 1rem;
+  }
 `;

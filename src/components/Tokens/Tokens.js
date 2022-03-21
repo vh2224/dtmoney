@@ -1,7 +1,6 @@
 export const Tokens = {
   types: {
-    newTransaction: 'var(--blue-light)',
-    register: 'var(--green)',
+    confirm: 'var(--green)',
   },
   margins: {
     top: '1rem',

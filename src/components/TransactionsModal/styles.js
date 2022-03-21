@@ -1,7 +1,10 @@
 import styled from 'styled-components';
+import { darken, transparentize } from 'polished';
 
 
 export const Container = styled.form `
+
+  padding-top: 2rem;
 
   input {
     width: 100%;
@@ -46,3 +49,60 @@ export const customStyles = {
     borderRadius: '0.25rem',
   }
 };
+
+
+export const ContainerTypesTransacation = styled.div`
+
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+
+  button {
+    height: 3.5rem;
+    border-radius: 0.25rem;
+    border: 2.5px solid #D7D7D7;
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      border-color: ${darken(0.1, '#D7D7D7')};
+    }
+
+    &.deposit {
+      background-color: ${transparentize(0.7, '#33CC95')};
+      border-color: ${transparentize(0.8 , '#33CC95')};
+    }
+
+    &.withdraw {
+      border-color: ${transparentize(0.8 , '#E54E4D')};
+      background-color: ${transparentize(0.7 , '#E54E4D')};
+    }
+
+    img {
+      height: 1.5rem;
+      width: 1.5rem;
+    }
+
+    span {
+      margin-left: 0.5rem;
+    }
+    
+  }
+
+`;
+
+
+export const CloseModal = styled.button`
+
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  border: none;
+  background: transparent;
+
+`;
