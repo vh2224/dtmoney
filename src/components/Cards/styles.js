@@ -34,6 +34,14 @@ export const Card = styled.div`
         strong {
             color: var(--white);
         }
+        
+        &.deposit {
+            background: var(--green);
+        }
+
+        &.withdraw {
+            background: var(--red)
+        }
     }
 
 `;

@@ -42,6 +42,4 @@ export const Transactions = styled.div`
 		}
 
 	}
-
-
 `;

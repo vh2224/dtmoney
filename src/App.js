@@ -3,6 +3,7 @@ import { Cards } from "./components/Cards/cards";
 import { Header } from "./components/Header/header";
 import { Transaction } from "./components/Transactions";
 import { TransactionsModal } from "./components/TransactionsModal/TransactionsModal"
+import  TransactionsProvider  from './TransactionsContext';
 import { GlobalStyles } from "./styles/global";
 import Modal from 'react-modal';
 
@@ -22,7 +23,7 @@ function App() {
     }
 
   return (
-    <>
+    <TransactionsProvider>
       <Header onClickNewTransaction={openModalNewTransaction}/>
       <Cards />
       <Transaction />
@@ -31,7 +32,7 @@ function App() {
         onRequestClose={closeModalNewTransaction}
       />
       <GlobalStyles />
-    </>
+    </TransactionsProvider>
   );
 }
 

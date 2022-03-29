@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react";
-import { api } from "../services/api";
+import { useContext } from 'react';
 import { Transactions } from "./styles";
-
+import { TransactionsContext } from '../../TransactionsContext';
 
 export function Transaction () {
 
-  const [newTransactions, setNewTransactions] = useState([]);
-
-  useEffect (() =>  {
-    api.get('/transactions')
-      .then(response => setNewTransactions(response.data));
-  }, []);
+  const {newTransactions} = useContext(TransactionsContext);
 
   function dateFormat(date) {
     const dateObject = new Date(date);
@@ -40,17 +34,24 @@ export function Transaction () {
         <tbody>
 
           {newTransactions.length >= 1 ?
-            newTransactions.map((transaction) =>(
+            newTransactions.map(transaction => {
 
-              <tr key={transaction.id}>
-                <td>{transaction.title}</td>
-                <td className={transaction.type === 'deposit' ? 'deposit' : 'withdraw'}>{transaction.type === 'withdraw' ? '-' : ''}R$ {transaction.value}</td>
-                <td>{transaction.category}</td>
-                <td>{dateFormat(transaction.created_at)}</td>
-              </tr>
-            ))
+              return (
+                <tr key={transaction.id}>
+                  <td>{transaction.title}</td>
+                  <td className={transaction.type}>{transaction.type === 'withdraw' ? '-' : '+'} {new Intl.NumberFormat('pt-BR', {style: 'currency', currency: 'BRL'}).format(transaction.value)}</td>
+                  <td>{transaction.category}</td>
+                  <td>{dateFormat(transaction.created_at)}</td>
+                </tr>
+              )
+
+            })
             :
-            <p>Não Existem Dados.</p>
+            <tr>
+              <td>
+                Não existem transações.
+              </td>
+            </tr>
         }
         </tbody>
       </table>

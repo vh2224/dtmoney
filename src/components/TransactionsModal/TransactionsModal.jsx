@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
+import { TransactionsContext } from '../../TransactionsContext';
 
 import Modal from 'react-modal';
 import { Button } from '../Button/Button';
@@ -6,27 +8,28 @@ import { Container, ContainerTypesTransacation, customStyles, CloseModal } from 
 import closeImg from '../../assets/button-close.svg'
 import incomeImg from '../../assets/income.svg'
 import outcomeImg from '../../assets/outcome.svg'
-import { api } from '../services/api';
 
 export function TransactionsModal ({isOpen, onRequestClose}) {
 
   const [title, setTitle] = useState('');
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
   const [type, setType] = useState('');
   const [category, setCategory] = useState('');
 
 
-  function handleCreateNewTransaction (e) {
-      e.preventDefault();
-      const data = [
-        title,
-        value,
-        type,
-        category
-      ]
-      console.log(data)
+  const {createTransaction} = useContext(TransactionsContext)
 
-      api.post ('/new-transaction', data)
+  async function handleCreateNewTransaction (e) {
+      e.preventDefault();
+
+      await createTransaction([title, value, type, category,]);
+
+      setTitle('');
+      setValue('');
+      setType('');
+      setCategory('');
+
+      onRequestClose();
 
     };
 
